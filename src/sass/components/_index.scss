@@ -1,0 +1,42 @@
+body {
+    background-image: url(../img/background/bg1.png);
+    background-clip: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-areas:
+  "header"
+  "main"
+  "footer"
+  ;
+}
+
+header {
+  display: grid;
+  grid-area: header;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  padding: 5px;
+  margin-right: 25px;
+}
+
+main {
+    display: grid;
+    grid-area: main;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr;
+}
+
+footer {
+  grid-area: footer;
+}
+
+.wrapper {
+    background-color: rgba(0,0,0,.5);
+    width: 100vw;
+    height: 100vh;
+}

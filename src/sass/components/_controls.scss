@@ -1,0 +1,47 @@
+.controls {
+  display: grid;
+  grid-auto-flow: column;
+}
+
+.button {
+  display: grid;
+  box-sizing: border-box;
+  margin-right: 5px;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background-color: rgba(0,0,0,0);
+}
+
+.button_refresh {
+  img {
+    margin: auto;
+  }
+}
+
+.select_lang {
+  color: white;
+  appearance: none;            /* remove arrow        */
+  -webkit-appearance: none;    /* remove arrow Chrome */
+  -moz-appearance: none;       /* remove arrow FF     */
+  text-align: center;
+  padding: 4px;
+  padding-left: 6px;
+  font-size: 22px;
+  option {
+    color: black;
+    vertical-align: middle;
+  }
+  option:checked {
+    vertical-align: middle;
+  }
+}
+
+.button_units {
+  span {
+    margin: auto;
+  }
+}

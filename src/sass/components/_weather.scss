@@ -1,0 +1,28 @@
+.wearher_today__block {
+  display: grid;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  grid-template-areas:
+      "temp ico"
+      "temp prop";
+  grid-template-columns: 2fr 1fr;
+  margin: 5px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.today_temp {
+  font-weight: 400;
+  font-size: 530%;
+  grid-area: temp;
+}
+
+.today_weather__ico {
+  width: 80%;
+  grid-area: ico;
+}
+
+.today_weather__property {
+  grid-area: prop;
+}
