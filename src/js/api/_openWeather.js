@@ -1,5 +1,7 @@
 import { openWeatherMap } from './_keys';
-import setWeather from '../createElem/_setWeather';
+import setWeather from '../createElem/weather/_setWeather';
+import setThreeDayWeather from '../createElem/weather/_setThreeDayWeather';
+import setWeatherMarque from '../createElem/weather/_setWeatherMar';
 
 async function getWeather() {
   console.log('Get Weather openWeather');
@@ -9,11 +11,15 @@ async function getWeather() {
     const longitude = sessionStorage.getItem('longitude');
     const lang = localStorage.getItem('lang');
     const units = localStorage.getItem('unit') || 'metric';
-    const res = await fetch(`${url}lat=${latitude}&lon=${longitude}&units=${units}&lang=${lang}&appid=${openWeatherMap}`);
+    const res = await fetch(`${url}lat=${latitude}&lon=${longitude}&units=${units}&lang=${lang}&
+    exclude=current,hourly,daily&appid=${openWeatherMap}`);
     const data = await res.json();
     if (data.cod >= 400) {
       return new Error(`something went wrong: ${data.message}`);
-    } await setWeather(data);
+    }
+    await setThreeDayWeather(data);
+    await setWeather(data);
+    await setWeatherMarque(data);
   } catch (err) {
     throw new Error(`${err}`);
   }

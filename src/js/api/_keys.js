@@ -9,6 +9,7 @@ const openCageData = '8396a22a3ed045debd14e2953aa58a40';
 // const weatherBit = '00000000000000000000000000000';
 // // Location
 // const openCageData = '000000000000000000000000000';
+// const mapBox = 'pk.0000000000000000000000000000000000000000000000000000000000000000';
 // Map
 const mapBox = 'pk.eyJ1IjoiZmlyZWd1biIsImEiOiJja2FtbzZkY3QwOHE4MnlwZnZweXZobXJ1In0.xpIZUEZdbfR30a9zb7ehlA';
 // Image

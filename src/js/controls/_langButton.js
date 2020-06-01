@@ -1,3 +1,4 @@
+import translateElements from '../transl/_translateElements';
 
 function langSelect() {
   const select = document.getElementById('lang');
@@ -6,6 +7,7 @@ function langSelect() {
     const changedLang = select.value;
     if (currentLang !== changedLang) {
       localStorage.setItem('lang', changedLang);
+      translateElements();
     }
   };
 }

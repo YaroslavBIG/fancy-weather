@@ -4,15 +4,21 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
+    user-select: none;
 }
 
 .wrapper {
   display: grid;
+  background-color: rgba(0,0,0,.5);
   grid-template-areas:
   "header"
   "main"
   "footer"
   ;
+  width: 97vw;
+  height: 92vh;
+  padding: 7px;
+  overflow: hidden;
 }
 
 header {
@@ -22,21 +28,20 @@ header {
   justify-content: space-between;
   padding: 5px;
   margin-right: 25px;
+  width: 98vw;
 }
 
 main {
     display: grid;
     grid-area: main;
     grid-auto-flow: column;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 40% 60%;
+    width: 98vw;
+    overflow: hidden;
 }
 
 footer {
   grid-area: footer;
+  width: 98vw;
 }
 
-.wrapper {
-    background-color: rgba(0,0,0,.5);
-    width: 100vw;
-    height: 100vh;
-}

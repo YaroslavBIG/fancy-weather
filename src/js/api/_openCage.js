@@ -2,8 +2,9 @@ import { openCageData } from './_keys';
 import setLocation from '../createElem/_loc';
 import getLocByIp from './_getLocByIp';
 import insertCoords from '../createElem/_coords';
+import setClock from '../createElem/_setClock';
 
-async function getLocByCoords() {
+async function getLocByCoords(transl = false) {
   console.log('Position by coords opencagedata');
   const apikey = openCageData;
   const latitude = sessionStorage.getItem('latitude');
@@ -43,10 +44,13 @@ async function getLocByCoords() {
       sessionStorage.setItem('timezone', timezone);
       sessionStorage.setItem('lat', lat);
       sessionStorage.setItem('lng', lng);
-      insertCoords(true);
+      if (!transl) {
+        insertCoords(true);
+      }
+      setClock();
       setLocation();
       return data.results[0];
-    } if (request.status <= 500) {
+    } if (request.status < 400) {
       // We reached our target server, but it returned an error
       getLocByIp();
       const data = JSON.parse(request.responseText);

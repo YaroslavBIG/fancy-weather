@@ -1,11 +1,16 @@
 
 const dictionary = {
   placeholder: ['Enter city', 'Увядзіце горад', 'Введите город'],
+  lang: ['en', 'be', 'ru'],
   search: ['search', 'пошук', 'поиск'],
   feel: ['Feels like:', 'Адчуваецца як:', 'Ощущается как:'],
   wind: ['Wind:', 'Вецер:', 'Ветер:'],
+  temp: ['Temp:', 'Тэмпература', 'Температура'],
   ms: ['m/s', 'м/с', 'м/с'],
   humidity: ['Humidity:', 'Вільготнасць:', 'Влажность:'],
+  pressure: ['Pressure:', 'Ціск:', 'Давление:'],
+  metric: ['mm Hg', 'мм рт. ст.', 'мм рт. ст.'],
+  imperial: ['hPa', 'гПа', 'гПа'],
   day: [
     ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
     ['Нядзеля', 'Панядзелак', 'Аўторак', 'Серада', 'Чацверг', 'Пятнiца', 'Субота'],

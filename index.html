@@ -2,57 +2,69 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css'/>
-    <title>Fancy-weather</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css' />
+  <link rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
+    type="text/css" />
+  <title>Fancy-weather</title>
 </head>
 
 <body>
-    <div class="wrapper">
-        <header>
-            <div class="controls">
-                <div class="button button_refresh">
-                  <img src="./src/img/refresh.svg" alt="Background refresh">
-                </div>
-                <select name="lang" id="lang" class="button select_lang">
-                  <option value="en" class='en' name='en'>EN</option>
-                  <option value="ru" class='ru'>RU</option>
-                  <option value="be" class='be'>BE</option>
-                </select>
-                <div class="button button_units" id="buttonUnits"><span id="unit">C</span></div>
+  <div class="wrapper">
+    <header>
+      <div class="controls">
+        <div class="button button_refresh">
+          <img src="./src/img/refresh.svg" alt="Background refresh">
+        </div>
+        <select name="lang" id="lang" class="button select_lang">
+          <option value="en" class='en' name='en'>EN</option>
+          <option value="ru" class='ru'>RU</option>
+          <option value="be" class='be'>BE</option>
+        </select>
+        <div class="button button_units" id="buttonUnits"><span id="unit">C</span></div>
+      </div>
+      <div class="search">
+        <div id="geocoder" class="geocoder"></div>
+        <div class="button_voice"></div>
+        <div class="button_search"></div>
+      </div>
+    </header>
+    <main>
+      <div class="weather">
+        <div class="wearher_today">
+          <div class="location"><span class="city"></span>, <span class="country"></span></div>
+          <div class="current_time"></div>
+          <div class="wearher_today__block">
+            <div class="today_temp"></div>
+            <div class="today_parameters">
+              <div class="today_weather__ico"></div>
+              <div class="today_weather__property"></div>
             </div>
-            <div class="search">
-                <input type="search" name="search" id="search">
-                <div class="button_voice"></div>
-                <div class="button_search"></div>
-            </div>
-        </header>
-        <main>
-            <div class="weather">
-                <div class="wearher_today">
-                    <div class="location"><span class="city"></span>, <span class="country"></span></div>
-                    <div class="current_time"></div>
-                    <div class="wearher_today__block">
-                        <div class="today_temp"></div>
-                        <div class="today_parameters">
-                          <div class="today_weather__ico"></div>
-                          <div class="today_weather__property"></div>
-                      </div>
-                    </div>
-                </div>
-                <div class="weather_days"></div>
-            </div>
-            <div class="map_block">
-                <div class="map" id='mapContainer'></div>
-                <div class="coordinates">
-                  <div class="latitude"></div>
-                  <div class="longitude"></div>
-                </div>
-            </div>
-        </main>
-        <footer></footer>
-    </div>
+          </div>
+        </div>
+        <div class="weather_days"></div>
+      </div>
+      <div class="map_block">
+        <div class="map" id='mapContainer'></div>
+        <div class="coordinates">
+          <div class="latitude"></div>
+          <div class="longitude"></div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class=marquee-wrapper>
+        <div class=marquee><span>13:00 - 17c wind - 4 ms</span>
+          <span>14:00 - 18c wind - 3 ms</span>
+          <span>15:00 - 15c wind - 2 ms</span>
+          <span>16:00 - 14c wind - 1 ms</span></div>
+      </div>
+    </footer>
+  </div>
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js">
+  </script>
 </body>
 
 </html>

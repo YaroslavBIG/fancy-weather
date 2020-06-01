@@ -1,3 +1,19 @@
+.weather {
+  height: 75vh;
+}
+
+.location {
+  font-size: 2em;
+  width: 100%;
+  min-width: 62px;
+}
+
+.current_time {
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+
 .wearher_today__block {
   display: grid;
   -webkit-box-align: center;
@@ -6,16 +22,39 @@
   grid-template-areas:
       "temp ico"
       "temp prop";
-  grid-template-columns: 2fr 1fr;
-  margin: 5px;
-  padding: 20px;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 20px;
   border-radius: 5px;
 }
+
+.today_parameters {
+  position: relative;
+}
+
+.today_ico {
+  img {
+    position: absolute;
+    top: -42px;
+    right: 51px;
+  }
+}
+
+.today_weather__property {
+  text-align: left;
+  padding-top: 63px;
+}
+
 
 .today_temp {
   font-weight: 400;
   font-size: 530%;
   grid-area: temp;
+}
+
+.today_temp::after,
+.dealy_temp::after,
+.feel--value::after {
+  content: "\00B0";
 }
 
 .today_weather__ico {
@@ -25,4 +64,27 @@
 
 .today_weather__property {
   grid-area: prop;
+}
+
+.weather_days {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.dealy {
+  display: grid;
+  grid-template-rows: 1fr 9fr;
+}
+
+.dealy_weather__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.dealy_temp {
+  font-size: 290%;
+}
+
+.humidity--value::after {
+  content: " \0025";
 }
