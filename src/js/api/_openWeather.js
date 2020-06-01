@@ -9,7 +9,7 @@ async function getWeather() {
     const url = 'https://api.openweathermap.org/data/2.5/onecall?';
     const latitude = sessionStorage.getItem('latitude');
     const longitude = sessionStorage.getItem('longitude');
-    const lang = localStorage.getItem('lang');
+    const lang = localStorage.getItem('lang') || 'en';
     const units = localStorage.getItem('unit') || 'metric';
     const res = await fetch(`${url}lat=${latitude}&lon=${longitude}&units=${units}&lang=${lang}&
     exclude=current,hourly,daily&appid=${openWeatherMap}`);

@@ -1,4 +1,4 @@
-import dictionary from "../transl/_dictionary";
+import dictionary from '../transl/_dictionary';
 
 function getLangNum() {
   const lang = localStorage.getItem('lang');

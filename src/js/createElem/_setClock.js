@@ -14,6 +14,5 @@ function getTime() {
   clearInterval(timeInterval);
   timeInterval = setInterval(startTime, 1000);
 }
-// 'dddd DD MMMM HH:MM:SS'
 
 export default getTime;

@@ -40,7 +40,7 @@ async function getLocByCoords(transl = false) {
       sessionStorage.setItem('city', city);
       sessionStorage.setItem('town', town);
       sessionStorage.setItem('state', state);
-      sessionStorage.setItem('village', village);
+      sessionStorage.setItem('village', village); // TODO: Translate
       sessionStorage.setItem('timezone', timezone);
       sessionStorage.setItem('lat', lat);
       sessionStorage.setItem('lng', lng);

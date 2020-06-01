@@ -13,7 +13,7 @@ function dayTranslation(timeStamp, param = 'dayTrans') {
   function getTranslDayName(stamp) {
     const lang = getLangNum();
     const daysOnCurrentLang = dictionary.day[lang];
-    const dayNum = getDayNum(stamp);
+    const dayNum = parseInt(getDayNum(stamp), 10);
     const dayTransl = daysOnCurrentLang[dayNum];
     return dayTransl;
   }
