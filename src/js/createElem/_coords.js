@@ -20,10 +20,10 @@ function insertCoords(full = false) {
     longitude = sessionStorage.getItem('lng');
   }
   const langNum = getLangNum();
-  const lat = dictionary.lat[langNum];
-  const lng = dictionary.lng[langNum];
-  latitudeTxt.innerText = `${lat}: ${latitude}`;
-  longitudeTxt.innerText = `${lng}: ${longitude}`;
+  const lati = dictionary.lat[langNum];
+  const long = dictionary.lng[langNum];
+  latitudeTxt.innerText = `${lati}: ${latitude}`;
+  longitudeTxt.innerText = `${long}: ${longitude}`;
 }
 
 export default insertCoords;

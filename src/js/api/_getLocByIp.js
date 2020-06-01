@@ -2,7 +2,7 @@ import { ipInfo } from './_keys';
 import setLocation from '../createElem/_loc';
 import insertCoords from '../createElem/_coords';
 import getWeather from './_openWeather';
-import setClock from '../createElem/_setClock';
+import getTime from '../createElem/_setClock';
 
 async function getLocByIp() {
   console.log('position by IP');
@@ -26,7 +26,7 @@ async function getLocByIp() {
   insertCoords();
   setLocation();
   getWeather();
-  setClock();
+  getTime()
 }
 
 export default getLocByIp;
