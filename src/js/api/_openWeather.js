@@ -2,9 +2,9 @@ import { openWeatherMap } from './_keys';
 import setWeather from '../createElem/weather/_setWeather';
 import setThreeDayWeather from '../createElem/weather/_setThreeDayWeather';
 import setWeatherMarque from '../createElem/weather/_setWeatherMar';
+import changeBg from '../createElem/_changeBg';
 
 async function getWeather() {
-  console.log('Get Weather openWeather');
   try {
     const url = 'https://api.openweathermap.org/data/2.5/onecall?';
     const latitude = sessionStorage.getItem('latitude');
@@ -20,6 +20,7 @@ async function getWeather() {
     await setThreeDayWeather(data);
     await setWeather(data);
     await setWeatherMarque(data);
+    changeBg();
   } catch (err) {
     throw new Error(`${err}`);
   }

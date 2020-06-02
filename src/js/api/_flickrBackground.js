@@ -11,12 +11,10 @@ async function getLinkToImageFlickr() {
 
     let query = `${timeOfDay},${season}`;
     if (isLatin(description)) query += `,${description},${country}`;
-    console.log('bakground', query);
     const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&
     api_key=${key}&tags=${query}&tag_mode=all&extras=url_h&format=json&nojsoncallback=1`;
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data);
     return data.photos.photo[0].url_h; // imgUrl;
   } catch (e) {
     return './img/background/bg3.png';

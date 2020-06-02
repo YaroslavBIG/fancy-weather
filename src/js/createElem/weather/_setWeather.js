@@ -3,7 +3,6 @@ import getIcoBlock from '../../utils/ico/_insetrIco';
 import setWeatherProperty from './_setWeatherProperty';
 
 function setWeather(data) {
-  console.log(data);
   const { temp } = data.current;
   const { description, icon } = data.current.weather[0];
   sessionStorage.setItem('weather', description);
@@ -19,7 +18,6 @@ function setWeather(data) {
   todayIcoEl.classList.add('today_ico');
   todayParametersBlock.append(todayIcoEl);
 
-  // timeOfDay(sunrise, sunset, dt);
   setWeatherProperty(data);
 }
 

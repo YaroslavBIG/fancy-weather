@@ -9,7 +9,6 @@ function getSeason(timeStamp) {
   };
   const hemispher = getHemisphere();
   const result = seasons[hemispher][seasonNow];
-  console.log(result);
   sessionStorage.setItem('season', result);
   return result;
 }

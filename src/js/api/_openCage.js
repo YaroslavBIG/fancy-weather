@@ -6,7 +6,6 @@ import timeOfDay from '../utils/data/_timeOfDay';
 import getSeason from '../utils/data/_getSeason';
 
 async function getLocByCoords(transl = false) {
-  console.log('Position by coords opencagedata');
   const apikey = openCageData;
   const latitude = sessionStorage.getItem('latitude');
   const longitude = sessionStorage.getItem('longitude');
@@ -29,14 +28,12 @@ async function getLocByCoords(transl = false) {
     if (request.status === 200) {
       // Success!
       const data = JSON.parse(request.responseText);
-      console.log(data);
       const {
         country, city, town, state, village, country_code, county,
       } = data.results[0].components;
       const sunRise = data.results[0].annotations.sun.rise.apparent;
       const sunSet = data.results[0].annotations.sun.set.apparent;
       const timestamp = data.timestamp.created_unix;
-      console.log(country, city, town, state, village, county);
       const { lat, lng } = data.results[0].annotations.DMS;
       const timezone = data.results[0].annotations.timezone.name;
       sessionStorage.setItem('country', country);
