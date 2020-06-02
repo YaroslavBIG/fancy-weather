@@ -1,8 +1,9 @@
 import { openCageData } from './_keys';
 import setLocation from '../createElem/_loc';
-import getLocByIp from './_getLocByIp';
 import insertCoords from '../createElem/_coords';
 import setClock from '../createElem/_setClock';
+import timeOfDay from '../utils/data/_timeOfDay';
+import getSeason from '../utils/data/_getSeason';
 
 async function getLocByCoords(transl = false) {
   console.log('Position by coords opencagedata');
@@ -30,9 +31,12 @@ async function getLocByCoords(transl = false) {
       const data = JSON.parse(request.responseText);
       console.log(data);
       const {
-        country, city, town, state, village, country_code,
+        country, city, town, state, village, country_code, county,
       } = data.results[0].components;
-      console.log(country, city, town, state, village);
+      const sunRise = data.results[0].annotations.sun.rise.apparent;
+      const sunSet = data.results[0].annotations.sun.set.apparent;
+      const timestamp = data.timestamp.created_unix;
+      console.log(country, city, town, state, village, county);
       const { lat, lng } = data.results[0].annotations.DMS;
       const timezone = data.results[0].annotations.timezone.name;
       sessionStorage.setItem('country', country);
@@ -40,30 +44,30 @@ async function getLocByCoords(transl = false) {
       sessionStorage.setItem('city', city);
       sessionStorage.setItem('town', town);
       sessionStorage.setItem('state', state);
-      sessionStorage.setItem('village', village); // TODO: Translate
+      sessionStorage.setItem('village', village); // TODO: Translate?
+      sessionStorage.setItem('county', county);
       sessionStorage.setItem('timezone', timezone);
       sessionStorage.setItem('lat', lat);
       sessionStorage.setItem('lng', lng);
       if (!transl) {
         insertCoords(true);
       }
+      timeOfDay(sunRise, sunSet, timestamp);
+      getSeason(timestamp);
       setClock();
       setLocation();
       return data.results[0];
     } if (request.status < 400) {
       // We reached our target server, but it returned an error
-      getLocByIp();
       const data = JSON.parse(request.responseText);
       const { message } = data.status;
       throw new Error(`unable to geocode! Response code: ${request.status} ${message}`);
     } else {
-      getLocByIp();
       throw new Error('server error');
     }
   };
 
   request.onerror = function e(err) {
-    getLocByIp();
     throw new Error(`unable to connect to server: ${err}`);
   };
 

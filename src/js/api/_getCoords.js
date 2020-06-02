@@ -2,6 +2,7 @@ import getLocByIp from './_getLocByIp';
 import insertCoords from '../createElem/_coords';
 import getLocByCoords from './_openCage';
 import getWeather from './_openWeather';
+import addMap from '../createElem/map/_mapCreate';
 
 function geoLoc() {
   const options = {
@@ -11,13 +12,13 @@ function geoLoc() {
   };
 
   function success(pos) {
-    console.log('Coords Browser');
     const crd = pos.coords;
     const { latitude } = crd;
     const { longitude } = crd;
     sessionStorage.setItem('latitude', latitude);
     sessionStorage.setItem('longitude', longitude);
     insertCoords();
+    addMap(latitude, longitude);
     getWeather();
     getLocByCoords();
   }

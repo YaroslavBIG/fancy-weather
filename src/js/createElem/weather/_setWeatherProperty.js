@@ -1,7 +1,7 @@
 import capitalize from '../../utils/_capitalize';
-import getLangNum from '../../utils/_getLangNum';
+import getLangNum from '../../utils/data/_getLangNum';
 import dictionary from '../../transl/_dictionary';
-import getPressure from '../../utils/_getPressure';
+import getPressure from '../../utils/data/_getPressure';
 
 function setWeatherProperty(data) {
   const { humidity } = data.current;

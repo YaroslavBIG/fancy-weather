@@ -1,5 +1,5 @@
 import dictionary from './_dictionary';
-import getLangNum from '../utils/_getLangNum';
+import getLangNum from '../utils/data/_getLangNum';
 
 function dayTranslation(timeStamp, param = 'dayTrans') {
   let result;

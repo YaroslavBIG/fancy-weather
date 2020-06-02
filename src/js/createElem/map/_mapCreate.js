@@ -4,7 +4,8 @@ import insertCoords from '../_coords';
 import getWeather from '../../api/_openWeather';
 import getLocByCoords from '../../api/_openCage';
 import dictionary from '../../transl/_dictionary';
-import getLangNum from '../../utils/_getLangNum';
+import getLangNum from '../../utils/data/_getLangNum';
+import changeBg from '../_changeBg';
 
 function addMap(lat, lng) {
   const langStor = localStorage.getItem('lang');
@@ -47,9 +48,10 @@ function addMap(lat, lng) {
       const lati = res.geometry.coordinates[1];
       sessionStorage.setItem('latitude', lati);
       sessionStorage.setItem('longitude', long);
-      insertCoords('map');
+      insertCoords();
       getWeather();
       getLocByCoords();
+      changeBg();
     });
   });
 

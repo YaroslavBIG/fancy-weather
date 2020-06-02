@@ -1,5 +1,5 @@
-import getIco from '../../utils/_getIco';
-import getIcoBlock from '../../utils/_insetrIco';
+import getIco from '../../utils/ico/_getIco';
+import getIcoBlock from '../../utils/ico/_insetrIco';
 import dayTranslation from '../../transl/_dayTranslation';
 
 function setThreeDayWeather(data) {

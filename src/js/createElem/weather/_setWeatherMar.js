@@ -1,6 +1,6 @@
 import moment from 'moment-timezone';
 import dictionary from '../../transl/_dictionary';
-import getLangNum from '../../utils/_getLangNum';
+import getLangNum from '../../utils/data/_getLangNum';
 
 function setWeatherMarque(data) {
   const hourlyData = data.hourly;

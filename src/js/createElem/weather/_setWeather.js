@@ -1,5 +1,5 @@
-import getIco from '../../utils/_getIco';
-import getIcoBlock from '../../utils/_insetrIco';
+import getIco from '../../utils/ico/_getIco';
+import getIcoBlock from '../../utils/ico/_insetrIco';
 import setWeatherProperty from './_setWeatherProperty';
 
 function setWeather(data) {
@@ -19,6 +19,7 @@ function setWeather(data) {
   todayIcoEl.classList.add('today_ico');
   todayParametersBlock.append(todayIcoEl);
 
+  // timeOfDay(sunrise, sunset, dt);
   setWeatherProperty(data);
 }
 

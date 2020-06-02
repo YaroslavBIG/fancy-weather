@@ -3,9 +3,10 @@ import setLocation from '../createElem/_loc';
 import insertCoords from '../createElem/_coords';
 import getWeather from './_openWeather';
 import getTime from '../createElem/_setClock';
+import addMap from '../createElem/map/_mapCreate';
+import getLocByCoords from './_openCage';
 
 async function getLocByIp() {
-  console.log('position by IP');
   const url = 'https://ipinfo.io/?token=';
   const res = await fetch(`${url}${ipInfo}`);
   const data = await res.json();
@@ -24,7 +25,9 @@ async function getLocByIp() {
   sessionStorage.setItem('country', country); // TODO: Country FULL Name
   sessionStorage.setItem('timezone', timezone);
   insertCoords();
+  addMap(latitude, longitude);
   setLocation();
+  getLocByCoords();
   getWeather();
   getTime();
 }
