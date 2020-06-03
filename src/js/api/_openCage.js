@@ -4,8 +4,9 @@ import insertCoords from '../createElem/_coords';
 import setClock from '../createElem/_setClock';
 import timeOfDay from '../utils/data/_timeOfDay';
 import getSeason from '../utils/data/_getSeason';
+import refreshData from '../utils/data/_refreshData';
 
-async function getLocByCoords(transl = false, forward = false) {
+async function getLocByCoords(transl = false, forward = null) {
   const apikey = openCageData;
   const latitude = sessionStorage.getItem('latitude');
   const longitude = sessionStorage.getItem('longitude');
@@ -28,10 +29,14 @@ async function getLocByCoords(transl = false, forward = false) {
     // https://opencagedata.com/api#codes
 
     if (request.status === 200) {
-      // Success!
       const data = JSON.parse(request.responseText);
       const lati = data.results[0].geometry.lat;
       const long = data.results[0].geometry.lng;
+      sessionStorage.setItem('latitudeF', lati);
+      sessionStorage.setItem('longitudeF', long);
+      if (forward) {
+        refreshData(lati, long);
+      }
       if (lati === 0 || long === 0) return;
       const {
         country, city, town, state, village, country_code, county, formatted,
@@ -57,13 +62,6 @@ async function getLocByCoords(transl = false, forward = false) {
       }
       timeOfDay(sunRise, sunSet, timestamp);
       getSeason(timestamp);
-      if (forward) {
-        sessionStorage.setItem('latitude', lati);
-        sessionStorage.setItem('longitude', long);
-        setClock();
-        setLocation();
-        return;
-      }
       setClock();
       setLocation();
       return data.results[0];

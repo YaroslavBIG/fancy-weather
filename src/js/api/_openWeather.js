@@ -4,11 +4,13 @@ import setThreeDayWeather from '../createElem/weather/_setThreeDayWeather';
 import setWeatherMarque from '../createElem/weather/_setWeatherMar';
 import changeBg from '../createElem/_changeBg';
 
-async function getWeather() {
+async function getWeather(forward = false) {
   try {
     const url = 'https://api.openweathermap.org/data/2.5/onecall?';
-    const latitude = sessionStorage.getItem('latitude');
-    const longitude = sessionStorage.getItem('longitude');
+    const lat = !forward ? 'latitude' : 'latitudeF';
+    const latitude = sessionStorage.getItem(lat);
+    const lng = !forward ? 'longitude' : 'longitudeF';
+    const longitude = sessionStorage.getItem(lng);
     const lang = localStorage.getItem('lang') || 'en';
     const units = localStorage.getItem('unit') || 'metric';
     const res = await fetch(`${url}lat=${latitude}&lon=${longitude}&units=${units}&lang=${lang}&
