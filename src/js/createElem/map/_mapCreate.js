@@ -8,12 +8,16 @@ import getLangNum from '../../utils/data/_getLangNum';
 
 function addMap(lat, lng) {
   const langStor = localStorage.getItem('lang');
+  const searchBlock = document.querySelector('#geocoder');
+  searchBlock.innerHTML = '';
+  const mapBlock = document.querySelector('#mapContainer');
+  mapBlock.innerHTML = '';
   mapboxgl.accessToken = mapBox;
   const map = new mapboxgl.Map({
     container: 'mapContainer',
     style: 'mapbox://styles/mapbox/streets-v9',
-    center: [lng, lat], // starting position [lng, lat]
-    zoom: 9, // starting zoom
+    center: [lng, lat],
+    zoom: 9,
   });
 
   map.addControl(

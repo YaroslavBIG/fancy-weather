@@ -5,6 +5,11 @@ body {
     background-size: cover;
     color: white;
     user-select: none;
+    transition: background 2s ease;
+    -webkit-transition: background 2s ease;
+    -moz-transition: background 2s ease;
+    -ms-transition: background 2s ease;
+    -o-transition: background 2s ease;
 }
 
 .wrapper {

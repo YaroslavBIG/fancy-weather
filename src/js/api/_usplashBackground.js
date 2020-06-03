@@ -11,7 +11,8 @@ async function getLinkToImage() {
 
     let query = `${timeOfDay},${season}`;
     if (isLatin(description)) query += `,${description},${country}`;
-    console.log('Background Search Query: ', query);
+    // eslint-disable-next-line no-console
+    console.log('Background Search Query: ', query); // console for cross check
     const url = `https://api.unsplash.com/photos/random?query=${query}&client_id=${key}`;
     const res = await fetch(url);
     const data = await res.json();

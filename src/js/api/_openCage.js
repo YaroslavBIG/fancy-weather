@@ -5,15 +5,17 @@ import setClock from '../createElem/_setClock';
 import timeOfDay from '../utils/data/_timeOfDay';
 import getSeason from '../utils/data/_getSeason';
 
-async function getLocByCoords(transl = false) {
+async function getLocByCoords(transl = false, forward = false) {
   const apikey = openCageData;
   const latitude = sessionStorage.getItem('latitude');
   const longitude = sessionStorage.getItem('longitude');
+  const qurey = forward;
   const lang = localStorage.getItem('lang');
   const langRes = lang === null ? 'en' : lang;
   const apiUrl = 'https://api.opencagedata.com/geocode/v1/json';
 
-  const requestUrl = `${apiUrl}?key=${apikey}&q=${latitude},${longitude}&language=${langRes}&timezone`;
+  let requestUrl = `${apiUrl}?key=${apikey}&q=${latitude},${longitude}&language=${langRes}&timezone`;
+  if (forward) requestUrl = `${apiUrl}?key=${apikey}&q=${qurey}&language=${langRes}&timezone`;
 
   // see full list of required and optional parameters:
   // https://opencagedata.com/api#forward
@@ -28,8 +30,11 @@ async function getLocByCoords(transl = false) {
     if (request.status === 200) {
       // Success!
       const data = JSON.parse(request.responseText);
+      const lati = data.results[0].geometry.lat;
+      const long = data.results[0].geometry.lng;
+      if (lati === 0 || long === 0) return;
       const {
-        country, city, town, state, village, country_code, county,
+        country, city, town, state, village, country_code, county, formatted,
       } = data.results[0].components;
       const sunRise = data.results[0].annotations.sun.rise.apparent;
       const sunSet = data.results[0].annotations.sun.set.apparent;
@@ -42,6 +47,7 @@ async function getLocByCoords(transl = false) {
       sessionStorage.setItem('town', town);
       sessionStorage.setItem('state', state);
       sessionStorage.setItem('village', village); // TODO: Translate?
+      sessionStorage.setItem('formatted', formatted);
       sessionStorage.setItem('county', county);
       sessionStorage.setItem('timezone', timezone);
       sessionStorage.setItem('lat', lat);
@@ -51,6 +57,13 @@ async function getLocByCoords(transl = false) {
       }
       timeOfDay(sunRise, sunSet, timestamp);
       getSeason(timestamp);
+      if (forward) {
+        sessionStorage.setItem('latitude', lati);
+        sessionStorage.setItem('longitude', long);
+        setClock();
+        setLocation();
+        return;
+      }
       setClock();
       setLocation();
       return data.results[0];

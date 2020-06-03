@@ -7,7 +7,8 @@ function setLocation() {
   const village = sessionStorage.getItem('village');
   const country = sessionStorage.getItem('country');
   const county = sessionStorage.getItem('county');
-  const arrPos = [city, town, state, village, county];
+  const formatted = sessionStorage.getItem('formatted');
+  const arrPos = [city, town, state, village, county, formatted];
   const arrFiltred = arrPos.filter((pos) => pos !== 'undefined');
   const pos = arrFiltred[0];
   cityFeald.innerText = pos;

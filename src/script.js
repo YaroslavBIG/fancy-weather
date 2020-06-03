@@ -10,6 +10,7 @@ import refreshBackroundButton from './js/controls/_background';
 import timeOfDay from './js/utils/data/_timeOfDay';
 import getSeason from './js/utils/data/_getSeason';
 import marqueeLoad from './js/createElem/_marque/_marqueLoad';
+import speechRec from './js/controls/_speechRec';
 
 function addEv() {
   sessionStorage.setItem('timezone', 'GMT');
@@ -26,9 +27,10 @@ function addEv() {
     getSeason();
     timeOfDay();
     startMarquee;
+    speechRec();
   });
 }
 
-// TODO: Refresh backgroud img after weather load
-// TODO: Animate background
+// TODO: SpeechSynthesis
+// TODO: Animate icons / background
 addEv();

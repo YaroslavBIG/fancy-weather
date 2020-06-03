@@ -8,6 +8,7 @@ function setWeather(data) {
   sessionStorage.setItem('weather', description);
 
   const tempField = document.querySelector('.today_temp');
+  tempField.innerHTML = '';
   tempField.innerText = Math.round(temp);
 
   const todayParametersBlock = document.querySelector('.today_parameters');

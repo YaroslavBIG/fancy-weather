@@ -37,11 +37,16 @@
 }
 }
 
-.button_refresh {
+.button_refresh,
+.button_mic {
   img {
     margin: auto;
     width: 18px;
   }
+}
+
+.button_mic--active {
+  background-color: #a52a2a;
 }
 
 .select_lang {
