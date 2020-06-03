@@ -1,5 +1,5 @@
 import geoLoc from './js/api/_getCoords';
-import unitsSelect from './js/controls/_units';
+import { unitsSelect } from './js/controls/_units';
 import langSelect from './js/controls/_langButton';
 import langSave from './js/createElem/_lang';
 import startMarquee from './js/createElem/weather/_marquee';
