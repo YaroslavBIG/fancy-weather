@@ -49,6 +49,26 @@
   background-color: #a52a2a;
 }
 
+.button_speak {
+  img {
+    width: 24px;
+    height: 24px;
+    margin: auto;
+    filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+}
+}
+
+.button_speak--active {
+  img {
+    width: 24px;
+    height: 24px;
+    margin: auto;
+    filter: none;
+    -webkit-filter: none;
+}
+}
+
 .select_lang {
   color: white;
   appearance: none;            /* remove arrow        */

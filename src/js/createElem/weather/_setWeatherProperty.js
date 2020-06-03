@@ -38,17 +38,21 @@ function setWeatherProperty(data) {
   const todayText = ['feel', 'wind', 'humidity', 'pressure'];
   const todayValue = [feelsLike, windSpeed, humidity, pressure];
   const ms = dictionary.ms[langNum];
+  let speech = `${description} `;
 
   const insertValues = () => {
     todayText.forEach((el, idx) => {
-      const text = todayPrpertyBlock.querySelector(`.${el}--text`);
-      const value = todayPrpertyBlock.querySelector(`.${el}--value`);
-      text.innerText = dictionary[el][langNum];
-      value.innerText = todayValue[idx];
+      const textBlock = todayPrpertyBlock.querySelector(`.${el}--text`);
+      const valueBlock = todayPrpertyBlock.querySelector(`.${el}--value`);
+      const text = dictionary[el][langNum];
+      const value = todayValue[idx];
+      textBlock.innerText = text;
+      valueBlock.innerText = value;
+      speech += ` ${text} ${value} `;
     });
   };
   insertValues();
-
+  sessionStorage.setItem('speech', speech);
   todayPrpertyBlock.querySelector('.wind--value').innerText += ` ${ms}`;
   todayParametersBlock.append(todayPrpertyBlock);
 }

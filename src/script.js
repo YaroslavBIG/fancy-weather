@@ -11,6 +11,7 @@ import timeOfDay from './js/utils/data/_timeOfDay';
 import getSeason from './js/utils/data/_getSeason';
 import marqueeLoad from './js/createElem/_marque/_marqueLoad';
 import speechRec from './js/controls/_speechRec';
+import speechSynt from './js/controls/_speechSynt';
 
 function addEv() {
   sessionStorage.setItem('timezone', 'GMT');
@@ -28,9 +29,10 @@ function addEv() {
     timeOfDay();
     startMarquee;
     speechRec();
+    speechSynt();
   });
 }
 
-// TODO: SpeechSynthesis
+// TODO: voice activate;
 // TODO: Animate icons / background
 addEv();
