@@ -17,16 +17,16 @@ function addEv() {
   sessionStorage.setItem('timezone', 'GMT');
   langSave();
   marqueeLoad();
+  langStart();
+  unitsStart();
+  geoLoc();
   document.addEventListener('DOMContentLoaded', () => {
-    langStart();
-    unitsStart();
     unitsSelect();
     langSelect();
-    refreshBackroundButton();
-    geoLoc();
     getTime();
     getSeason();
     timeOfDay();
+    refreshBackroundButton();
     startMarquee;
     speechRec();
     speechSynt();

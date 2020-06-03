@@ -30,6 +30,7 @@ async function getLocByCoords(transl = false, forward = null) {
 
     if (request.status === 200) {
       const data = JSON.parse(request.responseText);
+      if (!data.results.length) return;
       const lati = data.results[0].geometry.lat;
       const long = data.results[0].geometry.lng;
       sessionStorage.setItem('latitudeF', lati);
