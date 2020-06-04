@@ -39,7 +39,7 @@ header {
   padding: 5px;
   margin-right: 25px;
   width: 98vw;
-  @media screen and (max-width: 340px) {
+  @media screen and (max-width: 640px) {
     grid-auto-flow: unset;
     justify-content: center;
 }
