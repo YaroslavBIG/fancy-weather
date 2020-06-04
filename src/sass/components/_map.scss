@@ -34,11 +34,10 @@
     max-width: 360px;
 }
 @media screen and (max-width: 440px) {
-  width: 72%;
   font-size: 11px;
   min-width: 149px;
 }
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 640px) {
   grid-auto-flow: unset;
   justify-content: center;
   max-width: 168px;
