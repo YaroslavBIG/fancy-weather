@@ -22,9 +22,9 @@ function speechRec() {
           case 'forecast':
             return speek();
           case 'louder':
-            return speek(1);
+            return speek('ps', 1);
           case 'quieter':
-            return speek(0.1);
+            return speek('ps', 0.1);
           default:
             recognition.stop();
             inputSearch.value = results;
