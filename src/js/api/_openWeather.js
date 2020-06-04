@@ -2,7 +2,6 @@ import { openWeatherMap } from './_keys';
 import setWeather from '../createElem/weather/_setWeather';
 import setThreeDayWeather from '../createElem/weather/_setThreeDayWeather';
 import setWeatherMarque from '../createElem/weather/_setWeatherMar';
-import changeBg from '../createElem/_changeBg';
 
 async function getWeather(forward = false) {
   try {
@@ -22,7 +21,6 @@ async function getWeather(forward = false) {
     await setThreeDayWeather(data);
     await setWeather(data);
     await setWeatherMarque(data);
-    changeBg();
   } catch (err) {
     throw new Error(`${err}`);
   }

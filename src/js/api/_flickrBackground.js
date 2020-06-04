@@ -8,7 +8,6 @@ async function getLinkToImageFlickr() {
     const country = sessionStorage.getItem('country');
     const timeOfDay = sessionStorage.getItem('timeOfDayNow');
     const season = sessionStorage.getItem('season');
-
     let query = `${timeOfDay},${season}`;
     if (isLatin(country)) query += `,${country}`;
     const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&
@@ -20,9 +19,9 @@ async function getLinkToImageFlickr() {
     // eslint-disable-next-line no-console
     console.log('Background Search Query: ', query, `| You have ${photosLen} photos`); // console for cross check
     const protoNum = photosLen > 1 ? randomInteger(0, photosLen) : 0;
-    return data.photos.photo[protoNum].url_h; // imgUrl;
+    return data.photos.photo[protoNum].url_h;
   } catch (e) {
-    return './img/background/bg3.png';
+    return './img/background/bg2.png';
   }
 }
 

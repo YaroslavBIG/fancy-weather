@@ -5,6 +5,7 @@ import setClock from '../createElem/_setClock';
 import timeOfDay from '../utils/data/_timeOfDay';
 import getSeason from '../utils/data/_getSeason';
 import refreshData from '../utils/data/_refreshData';
+import changeBg from '../createElem/_changeBg';
 
 async function getLocByCoords(transl = false, forward = null) {
   const apikey = openCageData;
@@ -65,6 +66,7 @@ async function getLocByCoords(transl = false, forward = null) {
       getSeason(timestamp);
       setClock();
       setLocation();
+      changeBg();
       return data.results[0];
     } if (request.status < 400) {
       // We reached our target server, but it returned an error
