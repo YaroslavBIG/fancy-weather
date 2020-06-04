@@ -43,8 +43,6 @@ function addMap(lat, lng) {
     placeholder,
   });
   map.on('load', () => {
-    // Listen for the `geocoder.input` event that is triggered when a user
-    // makes a selection
     geocoder.on('result', (ev) => {
       const res = ev.result;
       const long = res.geometry.coordinates[0];

@@ -5,6 +5,7 @@ body {
     background-size: cover;
     color: white;
     user-select: none;
+    overflow-x: hidden;
     transition: background 2s ease;
     -webkit-transition: background 2s ease;
     -moz-transition: background 2s ease;
@@ -24,6 +25,10 @@ body {
   height: 92vh;
   padding: 7px;
   overflow: hidden;
+  @media screen and (max-width: 640px) {
+    overflow: auto;
+    overflow-x: hidden;
+  }
 }
 
 header {

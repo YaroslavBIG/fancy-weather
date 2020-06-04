@@ -1,16 +1,28 @@
 .weather {
   height: 75vh;
+
+  @media screen and (max-width: 440px) {
+    height: unset;
+  }
 }
 
 .location {
   font-size: 2em;
   width: 100%;
   min-width: 62px;
+
+  @media screen and (max-width: 720px) {
+    font-size: 1.2em;
+  }
 }
 
 .current_time {
   font-size: 1.5em;
   margin-top: 10px;
+
+  @media screen and (max-width: 720px) {
+    font-size: 1em;
+  }
 }
 
 
@@ -20,9 +32,8 @@
   -ms-flex-align: center;
   align-items: center;
   grid-template-areas:
-      "temp ico"
-      "temp prop";
-  grid-template-columns: 1fr 1fr;
+    "temp ico"
+    "temp prop";
   padding-bottom: 20px;
   border-radius: 5px;
 }
@@ -37,12 +48,24 @@
     width: 200px;
     top: -42px;
     right: 51px;
+
+    @media screen and (max-width: 860px) {
+      right: -4px;
+    }
+
+    @media screen and (max-width: 440px) {
+      right: -23px;
+    }
   }
 }
 
 .today_weather__property {
   text-align: left;
   padding-top: 63px;
+
+  @media screen and (max-width: 440px) {
+    padding-top: 50px;
+  }
 }
 
 
@@ -50,6 +73,14 @@
   font-weight: 400;
   font-size: 530%;
   grid-area: temp;
+
+  @media screen and (max-width: 640px) {
+    font-size: 322%;
+  }
+
+  @media screen and (max-width: 440px) {
+    font-size: 249%;
+  }
 }
 
 .today_temp::after,
@@ -70,20 +101,44 @@
 .weather_days {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+
+  @media screen and (max-width: 580px) {
+    grid-template-columns: repeat(3, 70px);
+  }
+
+  @media screen and (max-width: 485px) {
+    display: none;
+  }
 }
 
 .dealy {
   display: grid;
   grid-template-rows: 1fr 9fr;
+  height: 90px;
 }
 
 .dealy_weather__wrapper {
   display: grid;
   grid-template-columns: 1fr 5fr;
+  height: 90px;
+
+  @media screen and (max-width: 740px) {
+    display: unset;
+    grid-template-columns: unset;
+    height: unset;
+  }
 }
 
 .dealy_temp {
   font-size: 290%;
+
+  @media screen and (max-width: 860px) {
+    font-size: 190%;
+  }
+
+  @media screen and (max-width: 780px) {
+    font-size: 90%;
+  }
 }
 
 .humidity--value::after {

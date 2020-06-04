@@ -35,6 +35,10 @@
     -ms-transform: scale(.8);
     -o-transform: scale(.8);
 }
+@media screen and (max-width: 640px) {
+  width: 30px;
+  height: 30px;
+}
 }
 
 .button_refresh,
@@ -42,6 +46,9 @@
   img {
     margin: auto;
     width: 18px;
+    @media screen and (max-width: 640px) {
+      width: 14px;
+    }
   }
 }
 
@@ -56,6 +63,10 @@
     margin: auto;
     filter: grayscale(1);
     -webkit-filter: grayscale(1);
+    @media screen and (max-width: 640px) {
+      width: 20px;
+      height: 24px;
+    }
 }
 }
 
@@ -85,10 +96,18 @@
   option:checked {
     vertical-align: middle;
   }
+  @media screen and (max-width: 640px) {
+    padding: 3px;
+    padding-left: 3px;
+    font-size: 15px;
+  }
 }
 
 .button_units {
   font-size: 28px;
+  @media screen and (max-width: 640px) {
+    font-size: 21px;
+  }
   span {
     margin: auto;
   }

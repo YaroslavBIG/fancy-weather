@@ -1,16 +1,17 @@
 .map_block {
   display: grid;
-  grid-auto-rows: 5fr 1fr;
 }
 
 .map {
-  width: 60%;
-  height: 70%;
+  width: 31vw;
+  height: 42vh;
   margin: auto;
   -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
   clip-path: polygon(0% 0%, 100% 0, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
-  // -webkit-clip-path: polygon(51% 0, 84% 9%, 99% 28%, 95% 59%, 75% 100%, 36% 88%, 17% 75%, 5% 58%, 4% 32%, 20% 8%);
-  // clip-path: polygon(51% 0, 84% 9%, 99% 28%, 95% 59%, 75% 100%, 36% 88%, 17% 75%, 5% 58%, 4% 32%, 20% 8%);
+}
+
+.geocoder {
+  max-width: 260px;
 }
 
 .mapboxgl-control-container {
@@ -19,4 +20,23 @@
 
 .coordinates {
   text-align: center;
+  font-size: 120%;
+  @media screen and (max-width: 370px) {
+    text-align: left;
+    font-size: 14px;
+  }
+}
+
+.mapboxgl-ctrl-geocoder {
+  @media screen and (max-width: 640px) {
+    width: 33.3333%;
+    font-size: 15px;
+    line-height: 20px;
+    max-width: 360px;
+}
+@media screen and (max-width: 440px) {
+  width: 72%;
+  font-size: 11px;
+  min-width: 149px;
+}
 }

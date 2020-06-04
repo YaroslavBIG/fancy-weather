@@ -27,6 +27,4 @@ function addEv() {
   });
 }
 
-// TODO: voice activate;
-// TODO: Animate icons / background
 addEv();

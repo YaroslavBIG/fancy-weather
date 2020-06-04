@@ -22,7 +22,7 @@ async function getLocByIp() {
   sessionStorage.setItem('longitude', longitude);
   sessionStorage.setItem('city', city);
   sessionStorage.setItem('village', region);
-  sessionStorage.setItem('country', country); // TODO: Country FULL Name
+  sessionStorage.setItem('country', country);
   sessionStorage.setItem('timezone', timezone);
   insertCoords();
   addMap(latitude, longitude);

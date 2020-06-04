@@ -33,10 +33,5 @@ function dayTranslation(timeStamp, param = 'dayTrans') {
 
   return result;
 }
-// const date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
-// const options = {
-//   weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
-// };
-// console.log(date.toLocaleString('de-DE', options));
 
 export default dayTranslation;

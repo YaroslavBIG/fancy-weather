@@ -19,16 +19,10 @@ async function getLocByCoords(transl = false, forward = null) {
   let requestUrl = `${apiUrl}?key=${apikey}&q=${latitude},${longitude}&language=${langRes}&timezone`;
   if (forward) requestUrl = `${apiUrl}?key=${apikey}&q=${qurey}&language=${langRes}&timezone`;
 
-  // see full list of required and optional parameters:
-  // https://opencagedata.com/api#forward
-
   const request = new XMLHttpRequest();
   request.open('GET', requestUrl, true);
 
   request.onload = function c() {
-    // see full list of possible response codes:
-    // https://opencagedata.com/api#codes
-
     if (request.status === 200) {
       const data = JSON.parse(request.responseText);
       if (!data.results.length) return;
@@ -53,7 +47,7 @@ async function getLocByCoords(transl = false, forward = null) {
       sessionStorage.setItem('city', city);
       sessionStorage.setItem('town', town);
       sessionStorage.setItem('state', state);
-      sessionStorage.setItem('village', village); // TODO: Translate?
+      sessionStorage.setItem('village', village);
       sessionStorage.setItem('formatted', formatted);
       sessionStorage.setItem('county', county);
       sessionStorage.setItem('timezone', timezone);
@@ -69,7 +63,6 @@ async function getLocByCoords(transl = false, forward = null) {
       changeBg();
       return data.results[0];
     } if (request.status < 400) {
-      // We reached our target server, but it returned an error
       const data = JSON.parse(request.responseText);
       const { message } = data.status;
       throw new Error(`unable to geocode! Response code: ${request.status} ${message}`);
@@ -82,7 +75,7 @@ async function getLocByCoords(transl = false, forward = null) {
     throw new Error(`unable to connect to server: ${err}`);
   };
 
-  request.send(); // make the request
+  request.send();
 }
 
 export default getLocByCoords;

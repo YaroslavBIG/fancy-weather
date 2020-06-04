@@ -1,4 +1,3 @@
-// import getLinkToImage from '../api/_usplashBackground';
 import getLinkToImageFlickr from '../api/_flickrBackground';
 
 async function changeBg() {
