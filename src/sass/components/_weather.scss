@@ -1,9 +1,8 @@
 .weather {
   height: 75vh;
-
-  @media screen and (max-width: 440px) {
-    height: unset;
-  }
+  @media screen and (max-width: 640px) {
+    margin-top: 50px;
+}
 }
 
 .location {
@@ -101,14 +100,6 @@
 .weather_days {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-
-  @media screen and (max-width: 580px) {
-    grid-template-columns: repeat(3, 70px);
-  }
-
-  @media screen and (max-width: 485px) {
-    display: none;
-  }
 }
 
 .dealy {

@@ -1,5 +1,8 @@
 .map_block {
   display: grid;
+  @media screen and (max-width: 440px) {
+    padding-bottom: 50px;
+  }
 }
 
 .map {
@@ -21,10 +24,6 @@
 .coordinates {
   text-align: center;
   font-size: 120%;
-  @media screen and (max-width: 370px) {
-    text-align: left;
-    font-size: 14px;
-  }
 }
 
 .mapboxgl-ctrl-geocoder {
@@ -38,5 +37,12 @@
   width: 72%;
   font-size: 11px;
   min-width: 149px;
+}
+@media screen and (max-width: 340px) {
+  grid-auto-flow: unset;
+  justify-content: center;
+  max-width: 168px;
+  margin-top: 5px;
+  width: 100%;
 }
 }
