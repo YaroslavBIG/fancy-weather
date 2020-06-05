@@ -2,6 +2,7 @@ import { openWeatherMap } from './_keys';
 import setWeather from '../createElem/weather/_setWeather';
 import setThreeDayWeather from '../createElem/weather/_setThreeDayWeather';
 import setWeatherMarque from '../createElem/weather/_setWeatherMar';
+import marqueeSetError from '../createElem/_marque/_marqueError';
 
 async function getWeather(forward = false) {
   try {
@@ -16,12 +17,14 @@ async function getWeather(forward = false) {
     exclude=current,hourly,daily&appid=${openWeatherMap}`);
     const data = await res.json();
     if (data.cod >= 400) {
+      marqueeSetError(data.message);
       return new Error(`something went wrong: ${data.message}`);
     }
     await setThreeDayWeather(data);
     await setWeather(data);
     await setWeatherMarque(data);
   } catch (err) {
+    marqueeSetError(err);
     throw new Error(`${err}`);
   }
 }

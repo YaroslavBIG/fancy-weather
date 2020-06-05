@@ -3,6 +3,7 @@ import insertCoords from '../createElem/_coords';
 import getLocByCoords from './_openCage';
 import getWeather from './_openWeather';
 import addMap from '../createElem/map/_mapCreate';
+import marqueeSetError from '../createElem/_marque/_marqueError';
 
 function geoLoc() {
   const options = {
@@ -24,6 +25,7 @@ function geoLoc() {
   }
 
   function error() {
+    marqueeSetError('Please turn on geolocation');
     sessionStorage.setItem('latitude', 'not received');
     sessionStorage.setItem('longitude', 'not received');
     getLocByIp();

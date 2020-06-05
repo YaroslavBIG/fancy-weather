@@ -6,6 +6,7 @@ import timeOfDay from '../utils/data/_timeOfDay';
 import getSeason from '../utils/data/_getSeason';
 import refreshData from '../utils/data/_refreshData';
 import changeBg from '../createElem/_changeBg';
+import marqueeSetError from '../createElem/_marque/_marqueError';
 
 async function getLocByCoords(transl = false, forward = null) {
   const apikey = openCageData;
@@ -65,6 +66,7 @@ async function getLocByCoords(transl = false, forward = null) {
     } if (request.status < 400) {
       const data = JSON.parse(request.responseText);
       const { message } = data.status;
+      marqueeSetError(`unable to geocode! Response code: ${request.status} ${message}`);
       throw new Error(`unable to geocode! Response code: ${request.status} ${message}`);
     } else {
       throw new Error('server error');
@@ -72,6 +74,7 @@ async function getLocByCoords(transl = false, forward = null) {
   };
 
   request.onerror = function e(err) {
+    marqueeSetError(`unable to connect to server: ${err}`);
     throw new Error(`unable to connect to server: ${err}`);
   };
 
