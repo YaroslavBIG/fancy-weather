@@ -59,7 +59,7 @@
     "babel-plugin-transform-remove-strict-mode": "0.0.2",
     "editorconfig": "^0.15.3",
     "mapbox-gl": "^1.10.1",
-    "moment": "^2.26.0",
+    "moment": "^2.29.2",
     "moment-timezone": "^0.5.31"
   }
 }
